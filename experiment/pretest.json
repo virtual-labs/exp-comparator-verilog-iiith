@@ -2,38 +2,157 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is Verilog used for?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Creating hardware description language (HDL) models",
+        "b": "Writing web applications",
+        "c": "Developing mobile apps",
+        "d": "Designing operating systems"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Verilog is a hardware description language (HDL) used for modeling electronic systems.",
+        "b": "This answer is incorrect. Verilog is not used for writing web applications.",
+        "c": "This answer is incorrect. Verilog is not used for developing mobile apps.",
+        "d": "This answer is incorrect. Verilog is not used for designing operating systems."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "What does a comparator do in digital design?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Compares two binary numbers and produces an output based on their relationship",
+        "b": "Generates random signals",
+        "c": "Converts analog signals to digital signals",
+        "d": "Performs arithmetic operations"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Correct! A comparator compares two binary numbers and generates an output based on their relationship.",
+        "b": "This answer is incorrect. Comparators don't generate random signals.",
+        "c": "This answer is incorrect. Comparators don't convert analog signals to digital signals.",
+        "d": "This answer is incorrect. Comparators do not perform arithmetic operations."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
+    },
+    {
+      "question": "In Verilog, what keyword is used to declare a module?",
+      "answers": {
+        "a": "module",
+        "b": "input",
+        "c": "wire",
+        "d": "reg"
+      },
+      "explanations": {
+        "a": "Correct! In Verilog, 'module' is used to declare a module.",
+        "b": "This answer is incorrect. 'input' is used to declare input ports in Verilog.",
+        "c": "This answer is incorrect. 'wire' is used to declare wire connections in Verilog.",
+        "d": "This answer is incorrect. 'reg' is used to declare register variables in Verilog."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Explain the functionality of a full-adder in digital design.",
+      "answers": {
+        "a": "It adds two binary numbers and generates a sum and carry output",
+        "b": "It compares two binary numbers and provides an output",
+        "c": "It subtracts two binary numbers",
+        "d": "It performs logical AND operation on binary numbers"
+      },
+      "explanations": {
+        "a": "Correct! A full-adder adds two binary numbers and produces a sum and carry output.",
+        "b": "This answer is incorrect. Full-adders don't compare numbers; they perform addition.",
+        "c": "This answer is incorrect. Full-adders do not perform subtraction.",
+        "d": "This answer is incorrect. Full-adders do not perform logical AND operation."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the purpose of a testbench in Verilog simulation?",
+      "answers": {
+        "a": "To verify the functionality of the design by applying stimuli and checking outputs",
+        "b": "To create visual designs for the simulation",
+        "c": "To analyze the performance of hardware components",
+        "d": "To synthesize Verilog code to hardware components"
+      },
+      "explanations": {
+        "a": "Correct! A testbench is used to verify design functionality by applying stimuli and checking outputs.",
+        "b": "This answer is incorrect. Testbenches do not create visual designs; they test functionality.",
+        "c": "This answer is incorrect. Testbenches don't analyze performance; they verify functionality.",
+        "d": "This answer is incorrect. Synthesis converts Verilog code into hardware; it's not the testbench's role."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Explain the difference between blocking and non-blocking assignments in Verilog.",
+      "answers": {
+        "a": "Blocking assignments occur sequentially, while non-blocking assignments are concurrent",
+        "b": "Blocking assignments are faster than non-blocking assignments",
+        "c": "Blocking assignments only work with numbers, while non-blocking work with arrays",
+        "d": "Non-blocking assignments use '=' and blocking assignments use '<='"
+      },
+      "explanations": {
+        "a": "Correct! Blocking assignments happen sequentially, while non-blocking assignments occur concurrently.",
+        "b": "This answer is incorrect. The speed is not the primary difference between blocking and non-blocking assignments.",
+        "c": "This answer is incorrect. Both types of assignments can work with various data types, not limited to numbers or arrays.",
+        "d": "This answer is incorrect. The symbols '=' and '<=' are related to the type of assignments but don't define their core difference."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is race condition in digital circuit design?",
+      "answers": {
+        "a": "When multiple signals reach a flip-flop at different times",
+        "b": "When outputs change based on timing differences",
+        "c": "When signals arrive at gates at the same time",
+        "d": "When asynchronous signals interfere with each other"
+      },
+      "explanations": {
+        "a": "Correct! A race condition happens when multiple signals reach a flip-flop at different times, causing uncertainty.",
+        "b": "This answer is incorrect. Outputs changing due to timing differences isn't a race condition but timing issues.",
+        "c": "This answer is incorrect. Signals arriving simultaneously at gates don't necessarily cause a race condition.",
+        "d": "This answer is incorrect. Asynchronous signals interfering with each other may cause issues but not necessarily a race condition."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Explain metastability in digital circuits.",
+      "answers": {
+        "a": "It's a state where a flip-flop becomes locked in a particular value",
+        "b": "It's the occurrence of unpredictable outputs due to asynchronous inputs",
+        "c": "It's the settling time of the flip-flop",
+        "d": "It's the propagation delay between gates"
+      },
+      "explanations": {
+        "a": "This answer is incorrect. Metastability is not about a flip-flop getting stuck at a value.",
+        "b": "Correct! Metastability causes unpredictable outputs due to asynchronous inputs.",
+        "c": "This answer is incorrect. Settling time refers to the time taken for a signal to stabilize.",
+        "d": "This answer is incorrect. Propagation delay relates to the time taken for a signal to pass through gates."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the purpose of a latch in digital circuitry?",
+      "answers": {
+        "a": "To store data temporarily",
+        "b": "To perform logical operations",
+        "c": "To control clock signals",
+        "d": "To amplify input signals"
+      },
+      "explanations": {
+        "a": "Correct! A latch stores data temporarily in a digital circuit.",
+        "b": "This answer is incorrect. Latches do not perform logical operations; they store data.",
+        "c": "This answer is incorrect. Latches are not used to control clock signals; that's the role of flip-flops.",
+        "d": "This answer is incorrect. Latches do not amplify input signals."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
     }
   ]
 }
