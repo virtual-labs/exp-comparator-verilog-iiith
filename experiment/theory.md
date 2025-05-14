@@ -1,193 +1,206 @@
-## VERILOG
+This page provides an overview of Verilog, its significance, and practical examples of digital design using Verilog. We will explore three fundamental designs in this experiment:
 
-As we have seen in introduction what verilog is all about, why verilog was developed, what is its need, what is the advantages using verilog, now we are ready to make some digital designs using verilog. We will learn three basic designs which are listed below in this experiment.  
+1. **T-Flip Flop**
+2. **Counter**
+3. **T-Flip Flop Using D-Flip Flop**
 
-1. T-Flip Flop  
-2. Counter  
-3. T-Flip Flop usind D-Flip Flop  
+---
 
-**T-FLIP FLOP**
+Verilog is a hardware description language (HDL) developed to model electronic systems. It enables designers to describe the structure and behavior of digital circuits, facilitating simulation, synthesis, and verification. The modular nature of Verilog allows for efficient design, testing, and reuse of code.
 
-The verilog code for T-flip flop is given below with explaination of different parts of code.  
+---
 
-<img src="images/t.jpg">  
+## 1. T-Flip Flop
 
-Some of the following points which are not explained in detail in the above image are explained here below  
+The Verilog code for a T-Flip Flop is shown below, accompanied by an explanation of its components:
 
-**MODULE**  
+<p align="center">
+  <img src="images/t.jpg" alt="T-Flip Flop Verilog Code">
+</p>
 
-Verilog provides the concept of a module. A module is the basic building block in verilog. A module can be an element or a collection of lower-level design blocks. Typically, elements are grouped int mmodules to provide common functonality that is used at many places in the design. A module provides the necessary functionality to the higher-level block through its port interface (inputs and outputs), but hides the internal implementation. This allows the designer to modify module internals without affecting the rest of the design.  
+### Key Concepts
 
+- **Module:**  
+  A module is the fundamental building block in Verilog. It can represent a single element or a collection of lower-level design blocks. Modules encapsulate functionality and expose interfaces through input and output ports, allowing for abstraction and reuse.
 
-**MODULE NAME**  
+- **Module Name:**  
+  The module name is user-defined and is used to instantiate the module elsewhere in the design. Instantiation is demonstrated in the third example.
 
-Module name can be anything accordig to our own choice. It is just another name consisting of characters and numbers. It is used when module is instantiated in another module. We instantiate by calling the module using the name given to it. Instiating the module is explained in the third example code given below.  
+- **Module Arguments:**  
+  Similar to function arguments in C, module arguments specify the input and output ports used for communication with other modules or the external environment.
 
+- **Input/Output Ports:**  
+  These ports facilitate data transfer into and out of the module. All arguments listed in the module declaration must be defined as either input or output within the module.
 
-**ARGUMENTS IN MODULE**  
+- **Data Types:**  
+  In this example, the `reg` data type is used. Other data types, such as `wire`, will be introduced in subsequent examples. Refer to the chart below for an overview of Verilog data types:
 
-Just as in C function we give some arguments to function, here also we give arguments which consists of all the input and output ports which that module is using to take input fromthe user and give output to the user.  
+  <p align="center">
+    <img src="images/data.jpg" alt="Verilog Data Types">
+  </p>
 
-**INPUT-OUTPUT PORTS - I/O PORTS**  
+- **Always Block:**  
+  The `always` block contains statements that execute repeatedly, triggered by changes in specified signals (e.g., clock or reset).
 
-Input and Output ports are the ports through user can give inputs and take outputs. Whatever arguments we have given to module should be mentioned inside the module that which arguments correspond to input ports and which correspond to output ports as done in the image above.   
+- **Posedge Clock:**  
+  The `posedge` (positive edge) of the clock triggers the execution of statements within the `always` block, corresponding to a transition from low to high voltage.
 
-**DATA TYPES**
+- **Negedge Reset:**  
+  The `negedge` (negative edge) of the reset signal asynchronously sets the output to zero, regardless of the clock.
 
-Here in this example we have used *reg* data type and in upcoming examples we will be using some more as *wire* and all. So to know about various kinds of operators in verilog just read the following chart carefully.  
+- **Operators and Lexical Conventions:**  
+  Operators such as `~` (bitwise NOT) and `!` (logical NOT) are used in Verilog. The chart below summarizes various operators and conventions:
 
-<img src="images/data.jpg">
+  <p align="center">
+    <img src="images/lex.jpg" alt="Verilog Operators and Lexical Conventions">
+  </p>
 
-**ALWAYS BLOCK**
+- **Loops:**  
+  Verilog supports control structures such as `for`, `if-else`, and `while`, similar to C. These structures use `begin` and `end` to define statement blocks.
 
-All statements inside an always statement consists of always block. The always statement starts at time 0 and executes the always statement in the looping fashion continuously according to the condition given in the bracket of always block after "@".  
+- **Blocking and Non-Blocking Assignments:**
+  - **Blocking (`=`):** Statements execute sequentially.
+  - **Non-Blocking (`<=`):** Statements execute concurrently.  
+    For example:
+    ```
+    a = b;
+    b = a;
+    ```
+    Both `a` and `b` will have the value of `b`.  
+    Using non-blocking assignment:
+    ```
+    a <= b;
+    b <= a;
+    ```
+    The values are swapped simultaneously.
 
-**POSEDGE CLOCK**  
+---
 
-Posedge clock is written in the bracket of always statement means that the statements inside the always block will be executed only at the positive edge of the clock, that is, only when clock goes from low level to high level or generally 0V level to 5V level.  
+## 2. Counter
 
+The Verilog code for a counter is provided below, with explanations for each part:
 
-**NEGEDGE RESET**  
+<p align="center">
+  <img src="images/c.jpg" alt="Counter Verilog Code">
+</p>
 
-Reset is also a pulse here when the negative edge of reset is encountered then asynchronously that means irrespective of the clock the output will be set to zero. Negative edge means reset will go from high level to low level.  
+### Additional Notes
 
-OPERATORS AND OTHER LEXICAL CONVENTIONS  
+- **Assign Statement:**  
+  The `assign` keyword is used for continuous assignment. For example, `assign Q = tmp;` ensures that `Q` is updated immediately whenever `tmp` changes, regardless of execution sequence.
 
-~ and ! opertars are used in the above code. Apart from these there are various operators, numbers and identifiers provided by verilog. All of these are shown in figure below  
+---
 
-<img src="images/lex.jpg">  
+## 3. T-Flip Flop Using D-Flip Flop
 
+The Verilog code for implementing a T-Flip Flop using a D-Flip Flop is shown below:
 
-**LOOPS**  
+<p align="center">
+  <img src="images/td.jpg" alt="T-Flip Flop using D-Flip Flop Verilog Code">
+</p>
 
-Verilog also supports *for*, *if-else*, *while* loops as in C. In the above example if and else are used. The syntax for all loops is same as C just the difference is that they have a *begin* and *end* to denote the statements inside a loop.  
+### Key Concepts
 
-**BLOCKING AND NON-BLOCKING ASSIGNMENT**  
+- **Module Instantiation:**  
+  Modules are not defined within other modules; instead, they are instantiated (called) as needed. The module is referenced by its original name, but each instance must have a unique identifier. For example, the module `D_FF` is instantiated as `dff0`.
 
-Blocking statement is specified by = operator and Non-Blocking statement is specified by <= operator. Suppose there are two statements  
-*a = b*
-*b = a*
-Then both a and b will get values equal to b but if in place of equal to sign we place less than equal to operator, that is, if we use non blocking assignment then bith statement will be executed at same time, that is a will get the value of b and b will get the value of a at the same time so the values will be swapped. Hence statements with non-blocking assignment is started executing simultaneously.  
+- **Verilog Primitives:**  
+  Verilog provides built-in primitives such as `not`. In `not (d, q);`, `d` is the output and `q` is the input.
 
-**COUNTER**
+- **Compiler Directives and System Tasks:**  
+  While not used in the above examples, Verilog supports compiler directives and system tasks for advanced functionality. Refer to the flowcharts below for more information:
 
-The verilog code for counter is given below with explaination of different parts of code.  
+  <p align="center">
+    <img src="images/task.jpg" alt="Verilog System Tasks">
+  </p>
+  <p align="center">
+    <img src="images/direc.jpg" alt="Verilog Compiler Directives">
+  </p>
 
-<img sr="images/c.jpg">  
+---
 
-In tha above code, everything is pretty much explained in the box on right hand side given above. Just the *assign* statement is new so it is explained here. When we use assign before a statement like in above example Q=tmp, it means Q will be updated as soon as the value in tmp register changes whether or not it comes in the execution sequence or not. This is the speciality of assign keyword.  
+## Comparator
 
-**T_FLIP FLOP USING D-FLIP FLOP**  
+A digital comparator is a combinational circuit that compares two binary numbers and determines their relative magnitudes. Comparators are widely used in digital systems for tasks such as sorting, arithmetic operations, and control applications.
 
-The verilog code for the T-flip flop using D-flip flop is given below with explaination of different parts of code.  
+### 1-Bit Comparator
 
-<img src="images/td.jpg">  
+The operation of a single-bit digital comparator can be described by the following truth table:
 
+| A   | B   | A > B | A = B | A < B |
+| --- | --- | ----- | ----- | ----- |
+| 0   | 0   | 0     | 1     | 0     |
+| 0   | 1   | 0     | 0     | 1     |
+| 1   | 0   | 1     | 0     | 0     |
+| 1   | 1   | 0     | 1     | 0     |
 
-In the above example instantiation of module is used which is explained in detail here.  
+### 2-Bit Comparator
 
-**INSTANTIATION OF MODULE**  
+The operation of a two-bit digital comparator is shown below:
 
-We does not use module inside a module, thats why we instantiate it that means we call it as we call some function. One important thing to not while instantiating is that we call module with same name as we have given it while coding for it separately but when we are using it in other module we give it some other name and if it is instantiated more than one time then we have to give different name each time. Here in above example we have called the module with same name D_FF but given a new name dff0.  
+| A<sub>1</sub> | A<sub>0</sub> | B<sub>1</sub> | B<sub>0</sub> | A < B | A = B | A > B |
+| :-----------: | :-----------: | :-----------: | :-----------: | :---: | :---: | :---: |
+|       0       |       0       |       0       |       0       |   0   |   1   |   0   |
+|       0       |       0       |       0       |       1       |   1   |   0   |   0   |
+|       0       |       0       |       1       |       0       |   1   |   0   |   0   |
+|       0       |       0       |       1       |       1       |   1   |   0   |   0   |
+|       0       |       1       |       0       |       0       |   0   |   0   |   1   |
+|       0       |       1       |       0       |       1       |   0   |   1   |   0   |
+|       0       |       1       |       1       |       0       |   1   |   0   |   0   |
+|       0       |       1       |       1       |       1       |   1   |   0   |   0   |
+|       1       |       0       |       0       |       0       |   0   |   0   |   1   |
+|       1       |       0       |       0       |       1       |   0   |   0   |   1   |
+|       1       |       0       |       1       |       0       |   0   |   1   |   0   |
+|       1       |       0       |       1       |       1       |   1   |   0   |   0   |
+|       1       |       1       |       0       |       0       |   0   |   0   |   1   |
+|       1       |       1       |       0       |       1       |   0   |   0   |   1   |
+|       1       |       1       |       1       |       0       |   0   |   0   |   1   |
+|       1       |       1       |       1       |       1       |   0   |   1   |   0   |
 
-**NOT - VERILOG PROVIDED PRIMITIVE**  
+<p align="center">
+  <img src="images/comp1.png" alt="Two-Bit Comparator Circuit">
+</p>
 
-There are many primitives already defined in verilog which provides some particular functionalities. not is one of them. In not first argument is output value and second is input value. So in above example d is output and q is input.  
+### Implementation
 
-Verilog also provides us with some compiler directives and system tasks. These are not used in above programs but if you want to know about these functionalities, read the following flowcharts.  
-
-<img src="images/task.jpg">  
-
-<img src="images/direc.jpg">  
-
-## COMPARATOR
-
-The operation of a single bit digital comparator can be expressed as a truth table:
-
-**Inputs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Outputs**
-
-|A  |	B  |	A > B |	A = B |	A < B|
-|---|------|----------|-------|------|
-|0  |	0  |	0     |	1     |	0    |
-|0  |	1  |	0     |	0     | 1    |
-|1  | 	0  | 	1     | 0     | 0    |
-|1  |   1  | 	0     |	1     |	0    |
-
-
-The operation of a two bit digital comparator can be expressed as a truth table: 
-
-**Inputs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Outputs**
-
-|A<sub>1</sub>|A<sub>0</sub> | B<sub>1</sub>|  B<sub>0</sub> | A < B| A = B| A > B|
-|-------------|-------------|--------------|----------------|------|------|------|
-|0 	      |	0 	    |	0 	   |  	0 	    |	0  |	1 |	0|
-|0 	      |	0 	    | 	0 	   |	1 	    |	1  |	0 |	0|
-|0 	      |	0 	    |	1 	   |	0 	    |	1  |	0 |	0|
-|0 	      |	0 	    |	1 	   |	1 	    |	1  |	0 |	0|
-|0 	      |	1 	    |	0 	   |	0 	    |	0  |	0 |	1|
-|0 	      |	1 	    |	0 	   |	1 	    |	0  |	1 |	0|
-|0 	      |	1 	    |	1 	   |	0 	    |	1  |	0 |	0|
-|0 	      |	1 	    |	1 	   |	1 	    |	1  |	0 |	0|
-|1 	      |	0 	    |	0 	   |	0 	    |	0  | 	0 |	1|
-|1 	      |	0 	    |	0 	   |	1 	    |	0  |	0 |	1|
-|1 	      |	0 	    |	1 	   |	0 	    |	0  |	1 |	0|
-|1 	      |	0 	    |	1 	   |	1 	    |	1  |	0 |	0|
-|1 	      |	1 	    | 	0 	   |	0 	    |	0  |	0 |	1|
-|1 	      |	1 	    |	0 	   |	1 	    |	0  |	0 |	1|
-|1 	      |	1 	    |	1 	   |	0 	    |	0  |	0 |	1|
-|1 	      |	1 	    |	1 	   |	1 	    |	0  |	1 |	0|
-
-
-Following is the circuit digram for the two bit comparator : 
-
-<img src="images/comp1.png">
-
-
-**Implementation**
-
-A = A<sub>3</sub>A<sub>2</sub>A<sub>1</sub>A<sub>0</sub>
-
+Let  
+A = A<sub>3</sub>A<sub>2</sub>A<sub>1</sub>A<sub>0</sub>  
 B = B<sub>3</sub>B<sub>2</sub>B<sub>1</sub>B<sub>0</sub>
 
-Here each subscript represents one of the digits in the numbers.
+where each subscript represents a bit in the binary numbers.
 
+#### Equality
 
-**Equality**
+Two binary numbers A and B are equal if all corresponding bits are equal, i.e.,  
+A<sub>3</sub> = B<sub>3</sub>, A<sub>2</sub> = B<sub>2</sub>, A<sub>1</sub> = B<sub>1</sub>, and A<sub>0</sub> = B<sub>0</sub>.
 
-The binary numbers A and B will be equal if all the pairs of significant digits of both numbers are equal, i.e.,
+The Boolean function for equality of any two bits A<sub>i</sub> and B<sub>i</sub> is:
 
-A<sub>3</sub> = B<sub>3</sub>, A<sub>2</sub> = B<sub>2</sub>, A<sub>1</sub> = B<sub>1</sub> and A<sub>0</sub> = B<sub>0</sub>
+<p align="center">
+  <img src="images/comp_form1.png" alt="Equality Boolean Function">
+</p>
 
-Since the numbers are binary, the digits are either 0 or 1 and the boolean function for equality of any two digits Ai and Bi can be expressed as
+Here, x<sub>i</sub> is 1 only if A<sub>i</sub> and B<sub>i</sub> are equal.
 
-<img src="images/comp_form1.png">
+For overall equality, all x<sub>i</sub> (for i = 0, 1, 2, 3) must be 1.  
+Thus, the equality condition can be implemented as:
 
+(A = B) = x<sub>3</sub> x<sub>2</sub> x<sub>1</sub> x<sub>0</sub>
 
-x<sub>i</sub> is 1 only if A<sub>i</sub> and B<sub>i</sub> are equal.
+The output (A = B) is 1 only if all corresponding bits of A and B are equal.
 
-For the equality of A and  B, all x<sub>i</sub> variables (for i=0,1,2,3) must be 1.
+#### Inequality
 
-So the quality condition of A and B can be implemented using the AND operation as
-
-(A = B) = x<sub>3</sub>x<sub>2</sub>x<sub>1</sub>x<sub>0</sub>
-
-The binary variable (A=B) is 1 only if all pairs of digits of the two numbers are equal.
-
-
-**Inequality**
-
-In order to manually determine the greater of two binary numbers, we inspect the relative magnitudes of pairs of significant digits, starting from the most significant bit, gradually proceeding towards lower significant bits until an inequality is found. When an inequality is found, if the corresponding bit of A is 1 and that of B is 0 then we conclude that A>B.
+To determine which of two binary numbers is greater, compare the bits starting from the most significant bit (MSB) and proceed to the least significant bit (LSB) until a difference is found. If A<sub>i</sub> = 1 and B<sub>i</sub> = 0 at the first differing position, then A > B.
 
 This sequential comparison can be expressed logically as:
 
-<img src="images/comp_form2.png">  
+<p align="center">
+  <img src="images/comp_form2.png" alt="Greater Than Boolean Function">
+</p>
 
-<br/>
+<p align="center">
+  <img src="images/comp_form3.png" alt="Less Than Boolean Function">
+</p>
 
-
-<img src="images/comp_form3.png">  
-
-(A>B) and (A < B) are output binary variables, which are equal to 1 when A>B or A<B respectively.
-
- 
-
+The outputs (A > B) and (A < B) are binary variables that are high (1) when A is greater than B or less than B, respectively.
