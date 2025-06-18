@@ -1,3 +1,14 @@
+A digital comparator is a combinational circuit that compares two binary numbers and determines their relative magnitudes. The circuit produces three outputs:
+- $A > B$: Indicates if the first number is greater than the second
+- $A = B$: Indicates if both numbers are equal
+- $A < B$: Indicates if the first number is less than the second
+
+This experiment focuses on:
+1. Design and implementation of 1-bit and 2-bit comparators
+2. Understanding Boolean logic for comparison operations
+3. Verilog implementation of comparator circuits
+4. Analysis of comparator performance and timing
+
 **Verilog**
 
 Verilog is language commonly used in designing digital systems. It is a hardware description language, which means that it is substantially different from any other language you might have encountered so far. Even though it does have control flow statements and variables, it relies primarily on logic functions. It is a textual format for describing electronic circuits and systems.  
