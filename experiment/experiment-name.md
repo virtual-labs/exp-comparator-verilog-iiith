@@ -1,1 +1,1 @@
-## Experiment name
+## Design of Comparator using Verilog
